@@ -1,0 +1,33 @@
+﻿@model startupbuddy01.Data.AdminUserModel
+@{
+    ViewBag.Title = $"Profile Picture {Model.name}";
+}
+
+<div id="dgModal" class="modal" tabindex="-1" role="dialog" style="display: block;" aria-modal="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">@ViewBag.Title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+                <div class="modal-body">
+                    <div class="col-md-12">
+                        <img src="~/Content/images/@Model.photo" style="width:100%; margin:10px" />
+                    </div>
+                </div>
+                <!-- Modal footer -->
+                <div class="modal-footer" style="margin-top:10px">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+
+
+
+

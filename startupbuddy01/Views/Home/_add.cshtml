@@ -1,0 +1,85 @@
+﻿@model startupbuddy01.Data.AdminUserModel
+@{
+    ViewBag.Title = "New User";
+    var positions = ViewData["positions"] as List<SelectListItem>;
+}
+
+<div id="dgModal" class="modal" tabindex="-1" role="dialog" style="display: block;" aria-modal="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">@ViewBag.Title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            @using (Html.BeginForm("Add", "Home", FormMethod.Post, new { @class = "form-horizontal", id = "frmAdd", enctype = "multipart/form-data" }))
+            {
+                @Html.AntiForgeryToken()
+                <!-- Modal body borokokok-->
+        <div class="modal-body">
+            @Html.HiddenFor(x => x.id)
+            <div class="form-group">
+                @Html.LabelFor(x=>x.name, new { @class= "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(x => x.name, new { @class = "form-control", placeholder = @Html.DisplayNameFor(x => x.name) })
+                </div>
+            </div>
+            <div class="form-group row">
+                @Html.LabelFor(x => x.email, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(x => x.email, new { @class = "form-control", placeholder = @Html.DisplayNameFor(x => x.email) })
+                </div>
+            </div>
+            <div class="form-group row">
+                @Html.LabelFor(x => x.photo, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <input type="file" name="file" id="file" />
+                </div>
+            </div>
+            <div class="form-group row">
+                @Html.LabelFor(x => x.gender, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <span>
+                        @Html.RadioButtonFor(x => x.gender, "Male", new { id = "male" }) <label for="male" class="control-label" style="margin-right:5px">Male</label>
+                        @Html.RadioButtonFor(x => x.gender, "Female", new { id = "female" }) <label for="female" class="control-label">Female</label>
+                    </span>
+                </div>
+            </div>
+            <div class="form-group row">
+                @Html.LabelFor(x => x.age, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(x => x.age, new { @class = "form-control", placeholder = @Html.DisplayNameFor(x => x.age) })
+                </div>
+            </div>
+            <div class="form-group row">
+                @Html.LabelFor(x => x.address, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.TextAreaFor(x => x.address, 5, 5, new { @class = "form-control", placeholder = @Html.DisplayNameFor(x => x.address) })
+                </div>
+            </div>
+            <div class="form-group row">
+                @Html.LabelFor(x => x.position, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownListFor(x => x.position, positions, new { @class = "form-control s2", placeholder = @Html.DisplayNameFor(x => x.position) })
+                </div>
+            </div>
+        </div>
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-success">Create</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+            }
+
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+
+
+
+

@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "Users";
+}
+
+
+<div class="row" style="margin-top:100px">
+    <div class="col-md-12 text-right">
+        <button onclick="add()" class="btn btn-success">Add Admin</button>
+    </div>
+</div>
+<div class="row" style="margin-top:10px">
+    <div class="col-md-12">
+        <div id="tblData" class="table-responsive">
+            <table class="table table-md" id="tableData">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Photo</th>
+                        <th>Gender</th>
+                        <th>Age</th>
+                        <th>Address</th>
+                        <th>Position</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script language="javascript" src="~/Scripts/Home/index.js"></script>
+}
