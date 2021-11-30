@@ -146,6 +146,7 @@ function edit(id) {
             formData.append('file', files);
             formData.append('id', $('#id').val());
             formData.append('name', $('#name').val());
+            formData.append('photo', $('#photo').val());
             formData.append('email', $('#email').val());
             formData.append('gender', $('input[name="gender"]:checked').val());
             formData.append('age', $('#age').val());

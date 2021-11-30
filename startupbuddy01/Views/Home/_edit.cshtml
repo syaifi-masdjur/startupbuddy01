@@ -20,6 +20,7 @@
                 <!-- Modal body borokokok-->
         <div class="modal-body">
             @Html.HiddenFor(x => x.id)
+            @Html.HiddenFor(x => x.photo)
             <div class="form-group">
                 @Html.LabelFor(x => x.name, new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -35,6 +36,10 @@
             <div class="form-group row">
                 @Html.LabelFor(x => x.photo, new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
+                    @if (Model.photo != null)
+                    {
+                        <img src="~/Content/images/@Model.photo" style="width:100%" />
+                    }
                     <input type="file" name="file" id="file" />
                 </div>
             </div>
