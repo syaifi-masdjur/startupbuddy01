@@ -193,46 +193,6 @@ function edit(id) {
     })
 }
 
-function editX(id) {
-    //let base = $('#_base').val();
-
-    let link = "/Home/Edit"
-    $("#dgModal").remove();
-    $.get(link, { id }, function (dta) {
-        $("body").append(dta);
-        $("#dgModal").modal('show');
-        let frm = $('#frmEdit');
-        $('.s2').select2({ theme: 'bootstrap4' });
-        $.validator.unobtrusive.parse(frm);
-        frm.bind('submit', function (ev) {
-            $.ajax({
-                type: frm.attr('method'),
-                url: frm.attr('action'),
-                data: frm.serialize(),
-                success: function (res) {
-                    if (res.isSuccess === true) {
-                        $('.modal-backdrop').hide(); // for black background
-                        $('body').removeClass('modal-open'); // F/or scroll run
-                        $('#dgModal').modal('hide');
-                        $("#dgModal").remove();
-                        toastr.success('Data is Saved')
-                        bindTable();
-                    } else {
-                        $('.modal-backdrop').hide(); // for black background
-                        $('body').removeClass('modal-open'); // For scroll run
-                        $('#dgModal').modal('hide');
-                        $("#dgModal").remove();
-                        toastr.error(res.Messages)
-                    }
-                }
-            });
-            ev.preventDefault();
-            ev.stopImmediatePropagation();
-            return false;
-        })
-    })
-}
-
 function remove(idx) {
     //Getting current data
     //tampil swal
